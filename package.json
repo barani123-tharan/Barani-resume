@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "type": "commonjs",
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "npx puppeteer-core browsers install chrome"
+    "start": "node server.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^4.22.1",
     "mongoose": "^9.0.1",
-    "puppeteer-core": "^24.33.0"
+    "puppeteer": "^24.3.0"
   }
 }
