@@ -12,9 +12,20 @@ if (!MONGO_URI) {
   process.exit(1);
 }
 
+// Mongo model
 const resumeSchema = new mongoose.Schema({}, { strict: false });
 const Resume = mongoose.model("Resume", resumeSchema, "resumes");
 
+// ✅ HOME ROUTE (FIXES "Cannot GET /")
+app.get("/", (req, res) => {
+  res.send(`
+    <h2>Resume Generator</h2>
+    <p>Your service is running successfully.</p>
+    <a href="/generate">Generate Resume PDF</a>
+  `);
+});
+
+// HTML template
 function html(data) {
   return `
     <html>
@@ -26,6 +37,7 @@ function html(data) {
   `;
 }
 
+// PDF route
 app.get("/generate", async (req, res) => {
   let browser;
   try {
@@ -48,6 +60,7 @@ app.get("/generate", async (req, res) => {
 
     const page = await browser.newPage();
     await page.setContent(html(data), { waitUntil: "networkidle0" });
+
     const pdf = await page.pdf({ format: "A4" });
 
     res.set({
