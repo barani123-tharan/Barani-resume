@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "generate": "node generate_final_resume.js",
+    "postinstall": "npx puppeteer browsers install chrome",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -16,3 +17,4 @@
     "puppeteer": "^24.33.0"
   }
 }
+
