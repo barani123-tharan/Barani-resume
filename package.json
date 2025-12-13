@@ -1,20 +1,15 @@
 {
   "name": "resume_project",
   "version": "1.0.0",
-  "description": "Resume PDF Generator using MongoDB, Puppeteer, Express",
-  "main": "server.js",
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
-    "generate": "node generate_final_resume.js",
-    "postinstall": "npx puppeteer browsers install chrome",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npx puppeteer-core browsers install chrome"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^4.22.1",
     "mongoose": "^9.0.1",
-    "puppeteer": "^24.33.0"
+    "puppeteer-core": "^24.33.0"
   }
 }
-
